@@ -1,0 +1,12 @@
+<h1>Users#edit</h1>
+<%if current_user.ethereum_address.nil? == true%>
+<h1>イーサリアムアドレスの登録</h1>
+<!-- ここからフォーム -->
+    <%= form_tag(user_path, method: :PATCH, id: current_user.id) do %>
+    <%= label_tag(:address, "ご自身のイーサリアムアドレス") %>
+    <%= text_field_tag(:address) %>
+    <%= submit_tag("登録") %>
+  <% end %>
+  <h1>Users#edit</h1>
+  <%else%>
+<%end%>

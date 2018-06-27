@@ -1,18 +1,34 @@
 class PagesController < ApplicationController
+ before_action :authenticate_user!
   def index
-    if user_signed_in?
-      if current_user.ethereum_address.nil? == true
-        redirect_to pages_edit_path
-      else
-        redirect_to user_twitter_omniauth_authorize_path
-      end
-    end
-  end
-  def edit
-    if @addressup = current_user.update(ethereum_address: params[:address])
-      current_user.save
+    if current_user.ethereum_address.nil? == true
+      redirect_to edit_user_path(current_user.id)
     else
-      redirect_to pages_index_path
+
     end
   end
+
+  def create
+  end
+
+  def new
+  end
+
+  def edit
+  end
+
+  def show
+    if current_user.ethereum_address.nil? == true
+      redirect_to edit_user_path(current_user.id)
+    else
+
+    end
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
 end

@@ -5,9 +5,8 @@ class PagesController < ApplicationController
     end
   end
   def edit
-    @update = current_user.update(ethereum_address: params[:address])
-    current_user.save
-    if current_user.ethereum_address.nil?
+    if @addressup = current_user.update(ethereum_address: params[:address])
+      current_user.save
     else
       redirect_to pages_index_path
     end

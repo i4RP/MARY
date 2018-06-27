@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
   def index
-    if current_user.ethereum_address.nil?
-      redirect_to pages_edit_path
+    if user_signed_in?
+      if current_user.ethereum_address.nil? == true
+        redirect_to pages_edit_path
+      else
+        redirect_to user_twitter_omniauth_authorize_path
+      end
     end
   end
   def edit

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+protect_from_forgery except: :create # createアクションを除外
  before_action :authenticate_user!
   def index
     if current_user.ethereum_address.nil? == true

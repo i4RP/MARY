@@ -27,3 +27,22 @@ Rails 5.1.6
 
 * ...
 # mary-webapp
+`
+var maryABI = [
+{
+"constant": false,
+"inputs": [
+  {
+    "name": "_address",
+    "type": "address"
+  }
+],
+"name": "propose",
+"outputs": [],
+"payable": true,
+"stateMutability": "payable",
+"type": "function"
+}
+]
+var maryAddress = "0x1088D8c4F704983552DA27f832FF435F84bA87b4";
+`

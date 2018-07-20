@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth-twitter'
 gem 'webpacker', github: "rails/webpacker"
+gem 'jquery-rails'
 
 
 group :development, :test do

@@ -37,10 +37,11 @@ function propose(address) {
     .on("receipt", function(receipt) {
     //  $("#txStatus").text("Successfully Proposed " + address + "!");
       // トランザクションがブロックチェーンに取り込まれた。UIをアップデートしよう
+      alert("トランザクションが発行されました");
     })
     .on("error", function(error) {
       // トランザクションが失敗したことをユーザーに通知するために何かを行う
-    //  $("#txStatus").text(error);
+      alert("トランザクションが失敗しました");
     });
   }
 

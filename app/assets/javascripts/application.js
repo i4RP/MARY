@@ -14,5 +14,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//= require web3.min
 //= require mary
+//= require web3.min

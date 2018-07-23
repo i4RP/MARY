@@ -3,23 +3,24 @@ var mary;
 var userAccount;
 
 function startApp() {
+  // Rposten
   var maryABI = [
-  {
-  "constant": false,
-  "inputs": [
-    {
-      "name": "_address",
-      "type": "address"
-    }
-  ],
-  "name": "propose",
-  "outputs": [],
-  "payable": true,
-  "stateMutability": "payable",
-  "type": "function"
-  }
+  	{
+  		"constant": false,
+  		"inputs": [
+  			{
+  				"name": "_address",
+  				"type": "address"
+  			}
+  		],
+  		"name": "propose",
+  		"outputs": [],
+  		"payable": true,
+  		"stateMutability": "payable",
+  		"type": "function"
+  	}
   ]
-  var maryAddress = "0x1088D8c4F704983552DA27f832FF435F84bA87b4";
+  var maryAddress = "0xb08021A181857A93e8e1194eE2ef86be2EEE7Cb2";
   mary = new window.web3.eth.Contract(maryABI, maryAddress);
 }
 

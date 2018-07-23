@@ -1,11 +1,24 @@
 <h1>index</h1>
-<form name="myForm" onclick="propose()" method="post">
+<form name="myForm" onclick="propose(address)" method="post">
 Address:
 <input type="text" name="address">
 <input type="submit" value="Submit">
 </form>
 
 <button onclick="propose('0x3633D07CCFe6d719D35502040944db709B842767')">プロポーズ</button>
+
+<form name="myform">
+  <input name="mytext" type="text" />
+  <button id="btn">送信</button>
+</form>
+<script>
+  var btn = document.getElementById('btn');
+
+  btn.addEventListener('click', function() {
+    alert(document.myform.mytext.value);
+    propose(document.myform.mytext.value);
+  })
+</script>
 
 <div id="sample">1</div>
 <div id="sampleButton">

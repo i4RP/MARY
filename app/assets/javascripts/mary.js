@@ -2,6 +2,25 @@
 var mary;
 var userAccount;
 
+window.addEventListener('load', function() {
+
+  // Web3がブラウザにインジェクトされているかチェック (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Mist/MetaMaskのプロバイダの使用
+    web3js = new Web3(web3.currentProvider);
+    window.web3 = web3js;
+    console.log(window.web3)
+  } else {
+    // ユーザーがweb3を持たない場合の対処。
+    // アプリを使用するためにMetamaskをインストールするよう
+    // 伝えるメッセージを表示。
+    alert("Metamaskをインストールしてください")
+  }
+
+  // アプリのスタート＆Web3.jsへの自由なアクセスが可能に:
+  startApp()
+  //  alert("startapp完了")
+})
 function startApp() {
   // Rposten
   var maryABI = [
@@ -24,7 +43,8 @@ function startApp() {
   mary = new window.web3.eth.Contract(maryABI, maryAddress);
 }
 
- var userAccount = window.web3.eth.accounts[0]
+ var userAccount = window.web3.eth.accounts[0];
+ console.log(userAccount);
 
 function propose(address) {
   // しばらく時間がかかるので、UIを更新してユーザーに
@@ -44,23 +64,3 @@ function propose(address) {
       alert("トランザクションが失敗しました");
     });
   }
-
-window.addEventListener('load', function() {
-
-  // Web3がブラウザにインジェクトされているかチェック (Mist/MetaMask)
-  if (typeof web3 !== 'undefined') {
-    // Mist/MetaMaskのプロバイダの使用
-    web3js = new Web3(web3.currentProvider);
-    window.web3 = web3js;
-    console.log(window.web3)
-  } else {
-    // ユーザーがweb3を持たない場合の対処。
-    // アプリを使用するためにMetamaskをインストールするよう
-    // 伝えるメッセージを表示。
-    alert("Metamaskをインストールしてください")
-  }
-
-  // アプリのスタート＆Web3.jsへの自由なアクセスが可能に:
-  startApp()
-  //  alert("startapp完了")
-})

@@ -7,21 +7,36 @@ Address:
  -->
 <button onclick="propose('0x3633D07CCFe6d719D35502040944db709B842767')">プロポーズ</button>
 
-<form name="myform">
-  <input name="mytext" type="text" />
-  <button id="btn">婚約申請</button>
-</form>
-<script>
-  var btn = document.getElementById('btn');
+<form>
+    <label for="textForm"></label>
+    <input type="text" id="textForm">
 
-  btn.addEventListener('click', function() {
-    if (document.myform.mytext.value) {
-      alert(document.myform.mytext.value+"に婚約を申請しますか？");
-      propose(document.myform.mytext.value);
-    } else {
-      alert("結婚を申請する相手のイーサリアムアドレスを入力してください");
-    }
-  })
+    <button id="button">取得する</button>
+</form>
+
+<label for="resultForm">取得した値: </label>
+<input type="text" id="resultForm">
+
+<script>
+
+// ボタンの要素を取得
+var button = document.getElementById("button");
+
+// ボタンをクリックした時の処理
+button.addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+    // 入力フォームの値を取得
+    var textForm = document.getElementById("textForm").value;
+
+    // 取得した値を別の入力フォームに表示
+    var resultForm = document.getElementById("resultForm");
+    resultForm.value = textForm;
+    console.log(userAccount,resultForm.value);
+    propose(resultForm.value);
+});
+
 </script>
 <!--
 <div id="sample">1</div>

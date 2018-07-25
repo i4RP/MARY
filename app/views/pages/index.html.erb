@@ -6,19 +6,34 @@ Address:
  -->
 <!-- <button onclick="propose('0x3633D07CCFe6d719D35502040944db709B842767')">プロポーズ</button> -->
 <!--参考 https://joyplot.com/documents/2017/07/26/javascript-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0-%E6%95%B0%E5%80%A4-%E5%8F%96%E5%BE%97/ -->
-<h2>婚約</h2>
-<form>
-    <label for="textForm">結婚を申請する相手のETHアドレス</label>
-    <input type="text" id="pertnerAddress">
+<div>
+  <h2>婚約申請</h2>
+  <p>ここで婚約を相手に申請できます</p>
+  <form>
+      <label for="textForm">婚約したい相手のETHアドレス</label>
+      <input type="text" id="pertnerAddress">
+      <button id="proposebutton">婚約申請</button>
+  </form>
+</div>
+<h2>婚約申請履歴確認</h2>
+  <p>婚約申請履歴を確認できます</p>
+  <form>
+    <label for="textForm">婚約申請履歴を確認したい人のETHアドレス</label>
+    <input type="text" id="textForm">
+    <button id="checkproposebutton">婚約申請履歴確認</button>
+  </form>
+<div>
+  <h2>婚約成立確認</h2>
+    <p>婚約を確認したい二人のETHアドレスを入力してください。</p>
+    <form>
+      <label for="textForm">１人目ののETHアドレス</label>
+      <input type="text" id="textForm"><br>
+      <label for="textForm">２人目のETHアドレス</label>
+      <input type="text" id="textForm"><br>
+      <button id="checkproposebutton">婚約確認</button>
+    </form>
+</div>
 
-    <button id="proposebutton">結婚申請</button>
-</form>
-<h2>婚約確認</h2>
-<p>確認したい二人のETHアドレスを入力してください。</p>
-<label for="textForm">婚約を確認したい人のETHアドレス</label>
-<input type="text" id="textForm">
-<label for="textForm">婚約を確認したい人のその相手のETHアドレス</label>
-<input type="text" id="textForm">
 <!--
 <label for="resultForm">取得した値: </label>
 <input type="text" id="resultForm"> -->

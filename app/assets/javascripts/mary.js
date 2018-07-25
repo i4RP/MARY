@@ -24,45 +24,28 @@ window.addEventListener('load', function() {
 function startApp() {
   // Rposten
   //  maryABIは別ファイルからインポート
-  var maryAddress = "0x40deA50302F41b7B695135b588B1ce2b5834Ccd3";
+  var maryAddress = "0xe792919397F171A74f0FDF9D8607c37C25b90D5D";
   mary = new window.web3.eth.Contract(maryABI, maryAddress);
 }
+
  var userAccount = window.web3.eth.accounts[0];
  console.log(userAccount);
 
-function propose(address) {
+function propose(pertnerAddress) {
   // しばらく時間がかかるので、UIを更新してユーザーに
   // トランザクションが送信されたことを知らせる
   // $("#txStatus").text("Proposing marriage on the block chain. This may take a while...");
   // トランザクションをコントラクトに送信する:
-  console.log(userAccount, address)
-    return mary.methods.propose(address)
-    .send({ from: userAccount })
-    .on("receipt", function(receipt) {
-    //  $("#txStatus").text("Successfully Proposed " + address + "!");
-      // トランザクションがブロックチェーンに取り込まれた。UIをアップデートしよう
-      alert("トランザクションが発行されました");
-    })
-    .on("error", function(error) {
-      // トランザクションが失敗したことをユーザーに通知するために何かを行う
-      alert("トランザクションが失敗しました");
-    });
-  }
-  function getPartnerAddressesByPersonalAddress(address) {
-    // しばらく時間がかかるので、UIを更新してユーザーに
-    // トランザクションが送信されたことを知らせる
-    // $("#txStatus").text("Proposing marriage on the block chain. This may take a while...");
-    // トランザクションをコントラクトに送信する:
-    console.log(userAccount, address)
-      return mary.methods.propose(address)
-      .send({ from: userAccount ,value: window.web3.utils.toWei("0.001", "ether")})
+  console.log(userAccount, pertnerAddress);
+    return mary.methods.propose(pertnerAddress)
+      .send({ from: userAccount })
       .on("receipt", function(receipt) {
       //  $("#txStatus").text("Successfully Proposed " + address + "!");
         // トランザクションがブロックチェーンに取り込まれた。UIをアップデートしよう
-        alert("トランザクションが発行されました");
+        alert("トランザクションが成功しました");
       })
       .on("error", function(error) {
         // トランザクションが失敗したことをユーザーに通知するために何かを行う
-        alert("トランザクションが失敗しました");
+        alert("トランザクションが失敗しました。入力したアドレスが間違いないか。もしくはMetamaskなどでトランザクションを発行する際に設定するGasを少し高めにしてみてください。");
       });
-    }
+  }

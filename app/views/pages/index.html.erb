@@ -1,39 +1,45 @@
-<h1>結婚申請</h1>
 <!-- <form name="myForm" onclick="propose(address)" method="post">
 Address:
 <input type="text" name="address">
 <input type="submit" value="Submit">
 </form>
  -->
-<button onclick="propose('0x3633D07CCFe6d719D35502040944db709B842767')">プロポーズ</button>
+<!-- <button onclick="propose('0x3633D07CCFe6d719D35502040944db709B842767')">プロポーズ</button> -->
 <!--参考 https://joyplot.com/documents/2017/07/26/javascript-%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0-%E6%95%B0%E5%80%A4-%E5%8F%96%E5%BE%97/ -->
+<h2>婚約</h2>
 <form>
     <label for="textForm">結婚を申請する相手のETHアドレス</label>
-    <input type="text" id="textForm">
+    <input type="text" id="pertnerAddress">
 
-    <button id="button">結婚申請</button>
+    <button id="proposebutton">結婚申請</button>
 </form>
-
+<h2>婚約確認</h2>
+<p>確認したい二人のETHアドレスを入力してください。</p>
+<label for="textForm">婚約を確認したい人のETHアドレス</label>
+<input type="text" id="textForm">
+<label for="textForm">婚約を確認したい人のその相手のETHアドレス</label>
+<input type="text" id="textForm">
+<!--
 <label for="resultForm">取得した値: </label>
-<input type="text" id="resultForm">
+<input type="text" id="resultForm"> -->
 
 <script>
 // ボタンの要素を取得
-var button = document.getElementById("button");
+var proposebutton = document.getElementById("proposebutton");
 
 // ボタンをクリックした時の処理
-button.addEventListener("click", function(e) {
+proposebutton.addEventListener("click", function(e) {
 
     e.preventDefault();
 
     // 入力フォームの値を取得
-    var textForm = document.getElementById("textForm").value;
+    var pertnerAddress = document.getElementById("pertnerAddress").value;
 
     // 取得した値を別の入力フォームに表示
-    var resultForm = document.getElementById("resultForm");
-    resultForm.value = textForm;
-    console.log(userAccount,resultForm.value);
-    propose(resultForm.value);
+    // var resultForm = document.getElementById("resultForm");
+    // resultForm.value = textForm;
+    console.log(userAccount,pertnerAddress);
+    propose(pertnerAddress);
 });
 
 </script>

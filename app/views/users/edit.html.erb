@@ -1,12 +1,19 @@
-<h1>Users#edit</h1>
+<script type="text/javascript">
+    window.onload = function onLoad() {
+        target = document.getElementById("current_user_ethereum_address");
+        target.innerHTML = userAccount;
+    }
+</script>
 <%if current_user.ethereum_address.nil? == true%>
 <h1>イーサリアムアドレスの登録</h1>
+<label for="current_user_ethereum_address">あなたのMetamaskのETHアドレス: </label>
+<div class="contents" id="current_user_ethereum_address"></div>
 <!-- ここからフォーム -->
     <%= form_tag(user_path, method: :PATCH, id: current_user.id) do %>
-    <%= label_tag(:address, "ご自身のイーサリアムアドレス") %>
-    <%= text_field_tag(:address) %>
+    <%= text_field_tag(:address)%>
     <%= submit_tag("登録") %>
+    <br>
+    <%= label_tag(:address, "(上記のETHアドレスをコピー&ペーストしてください)") %>
   <% end %>
-  <h1>Users#edit</h1>
   <%else%>
 <%end%>

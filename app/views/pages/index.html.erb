@@ -10,27 +10,27 @@ Address:
   <h2>婚約申請</h2>
   <p>ここで婚約を相手に申請できます</p>
   <form>
-      <label for="textForm">婚約したい相手のETHアドレス</label>
+      <label for="pertnerAddress">婚約したい相手のETHアドレス</label>
       <input type="text" id="pertnerAddress">
-      <button id="proposebutton">婚約申請</button>
+      <button id="proposeButton">婚約申請</button>
   </form>
 </div>
 <h2>婚約申請履歴確認</h2>
   <p>婚約申請履歴を確認できます</p>
   <form>
-    <label for="textForm">婚約申請履歴を確認したい人のETHアドレス</label>
-    <input type="text" id="textForm">
-    <button id="checkproposebutton">婚約申請履歴確認</button>
+    <label for="checkProposeAddress">婚約申請履歴を確認したい人のETHアドレス</label>
+    <input type="text" id="checkProposeAddress">
+    <button id="checkProposeButton">婚約申請履歴確認</button>
   </form>
 <div>
   <h2>婚約成立確認</h2>
     <p>婚約を確認したい二人のETHアドレスを入力してください。</p>
     <form>
-      <label for="textForm">１人目ののETHアドレス</label>
-      <input type="text" id="textForm"><br>
-      <label for="textForm">２人目のETHアドレス</label>
-      <input type="text" id="textForm"><br>
-      <button id="checkproposebutton">婚約確認</button>
+      <label for="firstAddress">１人目ののETHアドレス</label>
+      <input type="text" id="firstAddress"><br>
+      <label for="secondAddress">２人目のETHアドレス</label>
+      <input type="text" id="secondAddress"><br>
+      <button id="checkEngagementButton">婚約確認</button>
     </form>
 </div>
 
@@ -40,10 +40,10 @@ Address:
 
 <script>
 // ボタンの要素を取得
-var proposebutton = document.getElementById("proposebutton");
+var proposeButton = document.getElementById("proposeButton");
 
 // ボタンをクリックした時の処理
-proposebutton.addEventListener("click", function(e) {
+proposeButton.addEventListener("click", function(e) {
 
     e.preventDefault();
 

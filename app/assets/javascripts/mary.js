@@ -23,26 +23,10 @@ window.addEventListener('load', function() {
 })
 function startApp() {
   // Rposten
-  var maryABI = [
-  	{
-  		"constant": false,
-  		"inputs": [
-  			{
-  				"name": "_address",
-  				"type": "address"
-  			}
-  		],
-  		"name": "propose",
-  		"outputs": [],
-  		"payable": true,
-  		"stateMutability": "payable",
-  		"type": "function"
-  	}
-  ]
-  var maryAddress = "0xb08021A181857A93e8e1194eE2ef86be2EEE7Cb2";
+  //  maryABIは別ファイルからインポート
+  var maryAddress = "0x40deA50302F41b7B695135b588B1ce2b5834Ccd3";
   mary = new window.web3.eth.Contract(maryABI, maryAddress);
 }
-
  var userAccount = window.web3.eth.accounts[0];
  console.log(userAccount);
 
@@ -53,7 +37,7 @@ function propose(address) {
   // トランザクションをコントラクトに送信する:
   console.log(userAccount, address)
     return mary.methods.propose(address)
-    .send({ from: userAccount ,value: window.web3.utils.toWei("0.001", "ether")})
+    .send({ from: userAccount })
     .on("receipt", function(receipt) {
     //  $("#txStatus").text("Successfully Proposed " + address + "!");
       // トランザクションがブロックチェーンに取り込まれた。UIをアップデートしよう
@@ -64,3 +48,21 @@ function propose(address) {
       alert("トランザクションが失敗しました");
     });
   }
+  function getPartnerAddressesByPersonalAddress(address) {
+    // しばらく時間がかかるので、UIを更新してユーザーに
+    // トランザクションが送信されたことを知らせる
+    // $("#txStatus").text("Proposing marriage on the block chain. This may take a while...");
+    // トランザクションをコントラクトに送信する:
+    console.log(userAccount, address)
+      return mary.methods.propose(address)
+      .send({ from: userAccount ,value: window.web3.utils.toWei("0.001", "ether")})
+      .on("receipt", function(receipt) {
+      //  $("#txStatus").text("Successfully Proposed " + address + "!");
+        // トランザクションがブロックチェーンに取り込まれた。UIをアップデートしよう
+        alert("トランザクションが発行されました");
+      })
+      .on("error", function(error) {
+        // トランザクションが失敗したことをユーザーに通知するために何かを行う
+        alert("トランザクションが失敗しました");
+      });
+    }

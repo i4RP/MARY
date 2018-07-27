@@ -49,3 +49,22 @@ function propose(pertnerAddress) {
         alert("トランザクションが失敗しました。入力したアドレスが間違いないか。もしくはMetamaskなどでトランザクションを発行する際に設定するGasを少し高めにしてみてください。");
       });
   }
+
+  function checkEngagement(firstAddress,secondAddress) {
+    // しばらく時間がかかるので、UIを更新してユーザーに
+    // トランザクションが送信されたことを知らせる
+    // $("#txStatus").text("Proposing marriage on the block chain. This may take a while...");
+    // トランザクションをコントラクトに送信する:
+    console.log(firstAddress, secondAddress);
+      return mary.methods.checkEngagement(firstAddress,secondAddress)
+        .send({ from: userAccount })
+        .on("receipt", function(receipt) {
+        //  $("#txStatus").text("Successfully Proposed " + address + "!");
+          // トランザクションがブロックチェーンに取り込まれた。UIをアップデートしよう
+          alert("トランザクションが成功しました");
+        })
+        .on("error", function(error) {
+          // トランザクションが失敗したことをユーザーに通知するために何かを行う
+          alert("トランザクションが失敗しました。入力したアドレスが間違いないか。もしくはMetamaskなどでトランザクションを発行する際に設定するGasを少し高めにしてみてください。");
+        })
+    }

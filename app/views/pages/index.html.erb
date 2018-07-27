@@ -9,6 +9,8 @@ Address:
 <div>
   <h2>婚約申請</h2>
   <p>ここで婚約を相手に申請できます</p>
+  <p>0x40dea50302f41b7b695135b588b1ce2b5834ccd3</p>
+  <p>0x3633D07CCFe6d719D35502040944db709B842767</p>
   <form>
       <label for="pertnerAddress">婚約したい相手のETHアドレス</label>
       <input type="text" id="pertnerAddress">
@@ -39,23 +41,36 @@ Address:
 <input type="text" id="resultForm"> -->
 
 <script>
-// ボタンの要素を取得
-var proposeButton = document.getElementById("proposeButton");
+//婚約申請
+  // ボタンの要素を取得
+  var proposeButton = document.getElementById("proposeButton");
+  // ボタンをクリックした時の処理
+  proposeButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      // 入力フォームの値を取得
+      var pertnerAddress = document.getElementById("pertnerAddress").value;
+      // 取得した値を別の入力フォームに表示
+      // var resultForm = document.getElementById("resultForm");
+      // resultForm.value = textForm;
+      console.log(userAccount,pertnerAddress);
+      propose(pertnerAddress);
+  });
 
-// ボタンをクリックした時の処理
-proposeButton.addEventListener("click", function(e) {
-
-    e.preventDefault();
-
-    // 入力フォームの値を取得
-    var pertnerAddress = document.getElementById("pertnerAddress").value;
-
-    // 取得した値を別の入力フォームに表示
-    // var resultForm = document.getElementById("resultForm");
-    // resultForm.value = textForm;
-    console.log(userAccount,pertnerAddress);
-    propose(pertnerAddress);
-});
+//婚約成立確認
+  // ボタンの要素を取得
+  var checkEngagementButton = document.getElementById("checkEngagementButton");
+  // ボタンをクリックした時の処理
+  checkEngagementButton.addEventListener("click", function(e) {
+      e.preventDefault();
+      // 入力フォームの値を取得
+      var firstAddress = document.getElementById("firstAddress").value;
+      var secondAddress = document.getElementById("secondAddress").value;
+      // 取得した値を別の入力フォームに表示
+      // var resultForm = document.getElementById("resultForm");
+      // resultForm.value = textForm;
+      console.log(firstAddress,secondAddress);
+      checkEngagement(firstAddress,secondAddress);
+  });
 
 </script>
 <!--
